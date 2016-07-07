@@ -1,0 +1,64 @@
+<html>
+<head>
+    <base href="/">
+    <title>Unit Testing for Tour of Heroes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+
+
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="forms.css">
+
+</head>
+
+<!-- 3. Display the application -->
+<body>
+<!-- 1. add the system.js library. -->
+<script src="node_modules/systemjs/dist/system.src.js"></script>
+
+<script>
+    // #2. Configure systemjs to use the .js extension
+    // for import from the app folder
+    System.config({
+        packages: {
+            'app':{defaultExtension: 'js'}
+        }
+    })
+
+    // #3. Import the spec file explicitly
+    System.import('app/hero.spec')
+            .then(window.onload)
+            .catch(console.error.bind(console))
+</script>
+
+</body>
+</html>
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Ng App Unit Tests</title>
+    <link rel="stylesheet" href="../node_modules/jasmine-core/lib/jasmine-core/jasmine.css"
+    <script src="../node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+    <script src="../node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+</head>
+<body>
+
+<script src="app/hero.js"></script>
+<script src="app/hero.spec.js"></script>
+</body>
+</html>-->

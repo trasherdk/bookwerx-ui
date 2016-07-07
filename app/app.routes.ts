@@ -3,6 +3,7 @@ import { provideRouter, RouterConfig }  from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroFormComponent } from './hero-form.component';
 
 export const routes: RouterConfig = [
   {
@@ -21,6 +22,10 @@ export const routes: RouterConfig = [
   {
     path: 'heroes',
     component: HeroesComponent
+  },
+  {
+    path: 'form',
+    component: HeroFormComponent
   }
 ];
 
