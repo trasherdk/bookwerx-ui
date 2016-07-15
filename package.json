@@ -38,7 +38,7 @@
     "async": "2.0.0",
     "autoprefixer": "6.3.6",
     "browser-sync": "2.11.2",
-    "codelyzer": "0.0.20",
+    "codelyzer": "0.0.25",
     "colorguard": "1.1.1",
     "compression": "1.6.2",
     "connect": "3.4.1",
