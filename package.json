@@ -1,10 +1,21 @@
 {
-  "name": "angular2-seed",
-  "version": "0.0.0",
-  "description": "Modular seed project for Angular 2 apps with fast, statically typed build",
+  "name": "bookwerx-ui",
+  "version": "0.1.0",
+  "description": "A browser based UI for bookwerx-core.",
+
+  "keywords": [
+    "bookkeeping",
+    "bookwerx",
+    "angular2",
+    "multi-currency"
+  ],
+  "author": "http://github.com/bostontrader",
+  "license": "MIT",
   "repository": {
-    "url": "https://github.com/mgechev/angular2-seed"
+    "type": "git",
+    "url": "https://github.com/bostontrader/bookwerx-ui.git"
   },
+
   "scripts": {
     "build.dev": "gulp build.dev --color",
     "build.dev.watch": "gulp build.dev.watch --color",
