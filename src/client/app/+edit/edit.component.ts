@@ -39,9 +39,9 @@ export class EditComponent implements OnInit {
     //});
 
     //let sub = this._route.params.subscribe(params=>{
-    this._route.params.subscribe(params=>{
+    this._route.params.subscribe(params => {
       let id=+params['id']
-      this._service.get(id).subscribe(person=>{
+      this._service.get(id).subscribe(person => {
         if (person) {
           this.editName = person.name;
           this.editPhone = person.phone;
