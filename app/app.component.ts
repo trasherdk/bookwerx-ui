@@ -3,6 +3,7 @@ import { ROUTER_DIRECTIVES }  from '@angular/router';
 
 import { HeroService }        from './hero.service';
 import { HeroFormComponent } from './hero-form.component';
+import { AccountsService }        from './accounts.service';
 
 @Component({
   selector: 'my-app',
@@ -13,6 +14,7 @@ import { HeroFormComponent } from './hero-form.component';
     <nav>
       <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
       <a [routerLink]="['/heroes']" routerLinkActive="active">Heroes</a>
+      <a [routerLink]="['/accounts']" routerLinkActive="active">Accounts</a>
       <a [routerLink]="['/form']" routerLinkActive="active">Form</a>
     </nav>
     <router-outlet></router-outlet>
@@ -21,7 +23,8 @@ import { HeroFormComponent } from './hero-form.component';
   styleUrls: ['app/app.component.css'],
   directives: [ROUTER_DIRECTIVES,HeroFormComponent],
   providers: [
-    HeroService
+    HeroService,
+    AccountsService
   ]
 })
 export class AppComponent {
