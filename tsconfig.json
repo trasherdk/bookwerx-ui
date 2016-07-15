@@ -2,10 +2,26 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "experimentalDecorators": true
+    "declaration": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "pretty": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true
   },
   "exclude": [
     "node_modules",
-    "typings/index.d.ts"
-  ]
+    "dist",
+    "typings/index.d.ts",
+    "typings/modules",
+    "src"
+  ],
+  "compileOnSave": false
 }
