@@ -4,7 +4,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
 
 import { Config, NameListService, NavbarComponent, ToolbarComponent, SearchService } from './shared/index';
 //import { SearchComponent } from './+search/index'
-import { EditComponent } from './+edit/index'
+//import { EditComponent } from './+edit/index'
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
