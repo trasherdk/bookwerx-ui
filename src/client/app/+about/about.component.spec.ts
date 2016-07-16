@@ -24,8 +24,7 @@ export function main() {
           .createAsync(TestComponent)
           .then((rootTC: any) => {
             let aboutDOMEl = rootTC.debugElement.children[0].nativeElement;
-
-	    expect(getDOM().querySelectorAll(aboutDOMEl, 'h2')[0].textContent).toEqual('Features');
+	        expect(getDOM().querySelectorAll(aboutDOMEl, 'h2')[0].textContent).toEqual('Features');
           });
         }));
     });
