@@ -43,14 +43,13 @@
     "webdriver-start": "webdriver-manager start",
     "webdriver-update": "webdriver-manager update"
   },
-  "author": "Minko Gechev <mgechev>",
-  "license": "MIT",
+
   "devDependencies": {
     "async": "2.0.0",
     "autoprefixer": "6.3.7",
     "browser-sync": "2.13.0",
     "codelyzer": "0.0.25",
-    "colorguard": "1.1.1",
+    "colorguard": "1.2.0",
     "compression": "1.6.2",
     "connect": "3.4.1",
     "connect-history-api-fallback": "1.2.0",
