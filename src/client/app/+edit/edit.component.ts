@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EditComponent implements OnInit {
 
   person: Person;
-  editName: string;
+  editName: string = 'catfood';
   editPhone: string;
   editAddress: Address;
 
