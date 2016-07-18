@@ -13,7 +13,7 @@ import { EditComponent } from './edit.component';
 
 export function main() {
 
-  describe('Edit Component- new')
+  //describe('Edit Component- new')
   describe('Edit component- old', () => {
 
     //beforeEach(function(){

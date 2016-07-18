@@ -60,6 +60,7 @@ Hence, put 'em here.
      "gulp-cached", 
      "gulp-clean-css",minify CSS using clean-css 
      "gulp-inject", Inject files into index.html
+     "gulp-inline-ng2-template": "1.1.2",
      "gulp-load-plugins",
      "gulp-plumber", fix some error in piping streams
      "gulp-sourcemaps",
@@ -101,7 +102,6 @@ both dependencies.
      "gulp-concat": "2.6.0",
      "gulp-concat-css": "2.2.0",
      "gulp-filter": "4.0.0",
-     "gulp-inline-ng2-template": "1.1.2",
      "gulp-postcss": "6.1.1",
      "gulp-progeny": "0.2.1",
      "gulp-protractor": "2.3.0",
