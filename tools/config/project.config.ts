@@ -1,6 +1,6 @@
-import { join } from 'path';
+import { join } from 'path'
 
-import { SeedConfig } from './seed.config';
+import { SeedConfig } from './seed.config'
 
 /**
  * This class extends the basic seed configuration, allowing for project specific overrides. A few examples can be found
@@ -11,7 +11,7 @@ export class ProjectConfig extends SeedConfig {
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
 
   constructor() {
-    super();
+    super()
     // this.APP_TITLE = 'Put name of your app here';
 
     // Add third-party libraries to be injected/bundled.
@@ -19,10 +19,9 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
-    ];
+    ]
 
     /* Add to or override NPM module configurations: */
     //this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
   }
-
 }

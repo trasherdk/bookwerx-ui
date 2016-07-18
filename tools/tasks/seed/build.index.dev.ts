@@ -18,8 +18,8 @@ export = () => {
     .pipe(inject('libs'))
     .pipe(inject())
     .pipe(plugins.template(templateLocals()))
-    .pipe(gulp.dest(APP_DEST));
-};
+    .pipe(gulp.dest(APP_DEST))
+}
 
 /**
  * Injects the file with the given name.
@@ -29,7 +29,7 @@ function inject(name?: string) {
   return plugins.inject(gulp.src(getInjectablesDependenciesRef(name), { read: false }), {
     name,
     transform: transformPath()
-  });
+  })
 }
 
 /**
@@ -39,7 +39,7 @@ function inject(name?: string) {
 function getInjectablesDependenciesRef(name?: string) {
   return DEPENDENCIES
     .filter(dep => dep['inject'] && dep['inject'] === (name || true))
-    .map(mapPath);
+    .map(mapPath)
 }
 
 /**
@@ -49,20 +49,20 @@ function getInjectablesDependenciesRef(name?: string) {
 function mapPath(dep: any) {
   let envPath = dep.src;
   if (envPath.startsWith(APP_SRC) && !envPath.endsWith('.scss')) {
-    envPath = join(APP_DEST, envPath.replace(APP_SRC, ''));
+    envPath = join(APP_DEST, envPath.replace(APP_SRC, ''))
   } else if (envPath.startsWith(APP_SRC) && envPath.endsWith('.scss')) {
-    envPath = envPath.replace(ASSETS_SRC, CSS_DEST).replace('.scss', '.css');
+    envPath = envPath.replace(ASSETS_SRC, CSS_DEST).replace('.scss', '.css')
   }
-  return envPath;
+  return envPath
 }
 
 /**
- * Transform the path of a dependecy to its location within the `dist` directory according to the applications
+ * Transform the path of a dependency to its location within the `dist` directory according to the applications
  * environment.
  */
 function transformPath() {
   return function (filepath: string) {
     arguments[0] = join(APP_BASE, filepath) + `?${Date.now()}`;
     return slash(plugins.inject.transform.apply(plugins.inject.transform, arguments));
-  };
+  }
 }

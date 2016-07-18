@@ -1,17 +1,17 @@
-import { existsSync, lstatSync, readdirSync } from 'fs';
-import * as gulp from 'gulp';
-import * as util from 'gulp-util';
-import * as isstream from 'isstream';
-import { join } from 'path';
-import * as tildify from 'tildify';
+import { existsSync, lstatSync, readdirSync } from 'fs'
+import * as gulp from 'gulp'
+import * as util from 'gulp-util'
+import * as isstream from 'isstream'
+import { join } from 'path'
+import * as tildify from 'tildify'
 
 /**
  * Loads the tasks within the given path.
  * @param {string} path - The path to load the tasks from.
  */
 export function loadTasks(path: string): void {
-  util.log('Loading tasks folder', util.colors.yellow(path));
-  readDir(path, taskname => registerTask(taskname, path));
+  util.log('Loading tasks folder', util.colors.yellow(path))
+  readDir(path, taskname => registerTask(taskname, path))
 }
 
 /**
@@ -20,24 +20,24 @@ export function loadTasks(path: string): void {
  * @param {string} path     - The path of the task.
  */
 function registerTask(taskname: string, path: string): void {
-  const TASK = join(path, taskname);
-  util.log('Registering task', util.colors.yellow(tildify(TASK)));
+  const TASK = join(path, taskname)
+  util.log('Registering task', util.colors.yellow(tildify(TASK)))
 
   gulp.task(taskname, (done: any) => {
-    const task = require(TASK);
+    const task = require(TASK)
     if (task.length > 0) {
-      return task(done);
+      return task(done)
     }
 
-    const taskReturnedValue = task();
+    const taskReturnedValue = task()
     if (isstream(taskReturnedValue)) {
-      return taskReturnedValue;
+      return taskReturnedValue
     }
 
     // TODO: add promise handling if needed at some point.
 
-    done();
-  });
+    done()
+  })
 }
 
 /**
@@ -46,20 +46,21 @@ function registerTask(taskname: string, path: string): void {
  * @param {function} cb   - The callback to execute per found file.
  */
 function readDir(root: string, cb: (taskname: string) => void) {
+
   if (!existsSync(root)) {
-    return;
+    return
   }
 
-  walk(root);
+  walk(root)
 
   function walk(path: string) {
-    let files = readdirSync(path);
+    let files = readdirSync(path)
     for (let i = 0; i < files.length; i += 1) {
-      let file = files[i];
-      let curPath = join(path, file);
+      let file = files[i]
+      let curPath = join(path, file)
       if (lstatSync(curPath).isFile() && /\.ts$/.test(file)) {
-        let taskname = file.replace(/\.ts$/, '');
-        cb(taskname);
+        let taskname = file.replace(/\.ts$/, '')
+        cb(taskname)
       }
     }
   }

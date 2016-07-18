@@ -10,7 +10,6 @@ const plugins = <any>gulpLoadPlugins();
  * Executes the build process, bundling the shim files.
  */
 export = () => merge(bundleShims());
-
 /**
  * Returns the shim files to be injected.
  */

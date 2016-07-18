@@ -1,7 +1,7 @@
-import { join } from 'path';
-import { argv } from 'yargs';
+import { join } from 'path'
+import { argv } from 'yargs'
 
-import { Environments, InjectableDependency } from './seed.config.interfaces';
+import { Environments, InjectableDependency } from './seed.config.interfaces'
 
 /**
  * The enumeration of available environments.
@@ -10,7 +10,7 @@ import { Environments, InjectableDependency } from './seed.config.interfaces';
 export const ENVIRONMENTS: Environments = {
   DEVELOPMENT: 'dev',
   PRODUCTION: 'prod'
-};
+}
 
 /**
  * This class represents the basic configuration of the seed.
@@ -31,12 +31,12 @@ export class SeedConfig {
    * The default port is `5555`, which can be overriden by the  `--port` flag when running `npm start`.
    * @type {number}
    */
-  PORT = argv['port'] || 5555;
+  PORT = argv['port'] || 5555
 
   /**
    * The root folder of the project (up two levels from the current directory).
    */
-  PROJECT_ROOT = join(__dirname, '../..');
+  //PROJECT_ROOT = join(__dirname, '../..');
 
   /**
    * The current environment.
@@ -49,21 +49,21 @@ export class SeedConfig {
    * The default value is `false`, which can be overriden by the `--debug` flag when running `npm start`.
    * @type {boolean}
    */
-  DEBUG = argv['debug'] || false;
+  //DEBUG = argv['debug'] || false;
 
   /**
    * The port where the documentation application will run.
    * The default docs port is `4003`, which can be overriden by the `--docs-port` flag when running `npm start`.
    * @type {number}
    */
-  DOCS_PORT = argv['docs-port'] || 4003;
+  //DOCS_PORT = argv['docs-port'] || 4003;
 
   /**
    * The port where the unit test coverage report application will run.
    * The default coverage port is `4004`, which can by overriden by the `--coverage-port` flag when running `npm start`.
    * @type {number}
    */
-  COVERAGE_PORT = argv['coverage-port'] || 4004;
+  //COVERAGE_PORT = argv['coverage-port'] || 4004;
 
   /**
    * The path for the base of the application at runtime.
@@ -76,7 +76,7 @@ export class SeedConfig {
    * The base path of node modules.
    * @type {string}
    */
-  NPM_BASE = join(this.APP_BASE, 'node_modules/');
+  //NPM_BASE = join(this.APP_BASE, 'node_modules/');
 
   /**
    * The flag for the hot-loader option of the application.
@@ -90,21 +90,21 @@ export class SeedConfig {
    * The default hot-loader port is `5578`.
    * @type {number}
    */
-  HOT_LOADER_PORT = 5578;
+  //HOT_LOADER_PORT = 5578;
 
   /**
    * The directory where the bootstrap file is located.
    * The default directory is `app`.
    * @type {string}
    */
-  BOOTSTRAP_DIR = 'app';
+  BOOTSTRAP_DIR = 'app'
 
   /**
    * The directory where the client files are located.
    * The default directory is `client`.
    * @type {string}
    */
-  APP_CLIENT = argv['client'] || 'client';
+  APP_CLIENT = argv['client'] || 'client'
 
   /**
    * The bootstrap file to be used to boot the application. The file to be used is dependent if the hot-loader option is
@@ -113,26 +113,26 @@ export class SeedConfig {
    * `hot_loader_main.ts` file will be used.
    * @type {string}
    */
-  BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main');
+  BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main')
 
   /**
    * The default title of the application as used in the `<title>` tag of the
    * `index.html`.
    * @type {string}
    */
-  APP_TITLE = 'Welcome to bookwerx-ui';
+  APP_TITLE = 'Welcome to bookwerx-ui'
 
   /**
    * The base folder of the applications source files.
    * @type {string}
    */
-  APP_SRC = `src/${this.APP_CLIENT}`;
+  APP_SRC = `src/${this.APP_CLIENT}`
 
   /**
    * The folder of the applications asset files.
    * @type {string}
    */
-  ASSETS_SRC = `${this.APP_SRC}/assets`;
+  ASSETS_SRC = `${this.APP_SRC}/assets`
 
   /**
    * The folder of the applications css files.
@@ -155,7 +155,7 @@ export class SeedConfig {
    * The destination folder for the generated documentation.
    * @type {string}
    */
-  DOCS_DEST = 'docs';
+  //DOCS_DEST = 'docs';
 
   /**
    * The base folder for built files.
@@ -202,7 +202,7 @@ export class SeedConfig {
   /**
    * The version of the application as defined in the `package.json`.
    */
-  VERSION = appVersion();
+  //VERSION = appVersion();
 
   /**
    * The name of the bundle file to includes all CSS files.
@@ -220,24 +220,24 @@ export class SeedConfig {
    * The name of the bundle file to include all JavaScript application files.
    * @type {string}
    */
-  JS_PROD_APP_BUNDLE = 'app.js';
+  //JS_PROD_APP_BUNDLE = 'app.js';
 
   /**
    * The required NPM version to run the application.
    * @type {string}
    */
-  VERSION_NPM = '2.14.2';
+  //VERSION_NPM = '2.14.2';
 
   /**
    * The required NodeJS version to run the application.
    * @type {string}
    */
-  VERSION_NODE = '4.0.0';
+  //VERSION_NODE = '4.0.0';
 
   /**
    * The ruleset to be used by `codelyzer` for linting the TypeScript files.
    */
-  CODELYZER_RULES = customRules();
+  //CODELYZER_RULES = customRules();
 
   /**
    * The flag to enable handling of SCSS files
@@ -311,7 +311,7 @@ export class SeedConfig {
     packages: {
       rxjs: { defaultExtension: 'js' }
     }
-  };
+  }
 
   /**
    * The configuration of SystemJS of the application.
@@ -324,54 +324,54 @@ export class SeedConfig {
    * The system builder configuration of the application.
    * @type {any}
    */
-  SYSTEM_BUILDER_CONFIG: any = {
-    defaultJSExtensions: true,
-    packageConfigPaths: [
-      join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
-      join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
-    ],
-    paths: {
-      [`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
-      '*': 'node_modules/*'
-    },
-    packages: {
-      '@angular/common': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/compiler': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/core': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/forms': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/http': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/platform-browser': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/platform-browser-dynamic': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/router': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      'rxjs': {
-        defaultExtension: 'js'
-      }
-    }
-  };
+  //SYSTEM_BUILDER_CONFIG: any = {
+    //defaultJSExtensions: true,
+    //packageConfigPaths: [
+      //join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
+      //join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
+    //],
+    //paths: {
+      //[`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
+      //'*': 'node_modules/*'
+    //},
+    //packages: {
+      //'@angular/common': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'@angular/compiler': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'@angular/core': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'@angular/forms': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'@angular/http': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'@angular/platform-browser': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'@angular/platform-browser-dynamic': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'@angular/router': {
+        //main: 'index.js',
+        //defaultExtension: 'js'
+      //},
+      //'rxjs': {
+        //defaultExtension: 'js'
+      //}
+    //}
+  //};
 
   /**
    * The Autoprefixer configuration for the application.
@@ -425,10 +425,10 @@ export class SeedConfig {
    * @param {any} target The target object (to receive values from source)
    * @param {any} source The source object (to be merged onto target)
    */
-  mergeObject(target: any, source: any) {
-    const deepExtend = require('deep-extend');
-    deepExtend(target, source);
-  }
+  //mergeObject(target: any, source: any) {
+    //const deepExtend = require('deep-extend');
+    //deepExtend(target, source);
+  //}
 
   /**
    * Locate a plugin configuration object by plugin key.
@@ -436,13 +436,13 @@ export class SeedConfig {
    */
   getPluginConfig(pluginKey: string): any {
     if (this.PLUGIN_CONFIGS[ pluginKey ]) {
-      return this.PLUGIN_CONFIGS[pluginKey];
+      return this.PLUGIN_CONFIGS[pluginKey]
     }
-    return null;
+    return null
   }
 
   getInjectableStyleExtension() {
-    return this.ENV === ENVIRONMENTS.PRODUCTION && this.ENABLE_SCSS ? 'scss' : 'css';
+    return this.ENV === ENVIRONMENTS.PRODUCTION && this.ENABLE_SCSS ? 'scss' : 'css'
   }
 
 }
@@ -466,31 +466,31 @@ export function normalizeDependencies(deps: InjectableDependency[]) {
  */
 function filterDependency(env: string, d: InjectableDependency): boolean {
   if (!d.env) {
-    d.env = Object.keys(ENVIRONMENTS).map(k => ENVIRONMENTS[k]);
+    d.env = Object.keys(ENVIRONMENTS).map(k => ENVIRONMENTS[k])
   }
   if (!(d.env instanceof Array)) {
     (<any>d).env = [d.env];
   }
-  return d.env.indexOf(env) >= 0;
+  return d.env.indexOf(env) >= 0
 }
 
 /**
  * Returns the applications version as defined in the `package.json`.
  * @return {number} The applications version.
  */
-function appVersion(): number | string {
-  var pkg = require('../../package.json');
-  return pkg.version;
-}
+//function appVersion(): number | string {
+  //var pkg = require('../../package.json');
+  //return pkg.version;
+//}
 
 /**
  * Returns the linting configuration to be used for `codelyzer`.
  * @return {string[]} The list of linting rules.
  */
-function customRules(): string[] {
-  var lintConf = require('../../tslint.json');
-  return lintConf.rulesDirectory;
-}
+//function customRules(): string[] {
+  //var lintConf = require('../../tslint.json');
+  //return lintConf.rulesDirectory;
+//}
 
 /**
  * Returns the environment of the application.
