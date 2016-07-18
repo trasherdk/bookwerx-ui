@@ -17,13 +17,15 @@
   },
 
   "scripts": {
-    "start": "gulp serve.dev --color"
+    "start": "gulp serve.dev --color",
+    "test":  "gulp test --color"
   },
 
   "devDependencies": {
     "async": "2.0.0",
     "autoprefixer": "6.3.7",
     "browser-sync": "2.13.0",
+    "codelyzer": "0.0.25",
     "gulp": "3.9.1",
     "gulp-cached": "1.1.0",
     "gulp-clean-css": "2.0.7",
@@ -32,13 +34,18 @@
     "gulp-plumber": "1.1.0",
     "gulp-sourcemaps": "2.0.0-alpha",
     "gulp-template": "4.0.0",
+    "gulp-tslint": "4.3.3",
     "gulp-typescript": "2.13.6",
     "gulp-util": "3.0.7",
+    "gulp-watch": "4.3.5",
+    "is-ci": "1.0.8",
     "isstream": "0.1.2",
     "merge-stream": "1.0.0",
     "run-sequence": "1.2.2",
     "slash": "1.0.0",
     "tildify": "1.2.0",
+    "tslint": "3.10.2",
+    "tslint-stylish": "2.1.0-beta",
     "ts-node": "0.9.3",
     "typescript": "1.8.10",
     "yargs": "4.2.0"
@@ -54,7 +61,7 @@
     "@angular/router": "3.0.0-beta.2",
     "core-js": "2.4.0",
     "es6-module-loader": "0.17.11",
-    "rxjs": "5.0.0-beta.10",
+    "rxjs": "5.0.0-beta.6",
     "systemjs": "0.19.31",
     "zone.js": "0.6.12"
   }

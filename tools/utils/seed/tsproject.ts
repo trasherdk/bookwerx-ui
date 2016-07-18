@@ -9,7 +9,6 @@ let tsProject: any
  * @param {Object} options - The additional options for the project configuration.
  */
 export function makeTsProject(options?: Object) {
-  
   if (!tsProject) {
 
     const config = Object.assign({

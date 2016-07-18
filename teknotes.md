@@ -5,6 +5,7 @@ Hence, put 'em here.
 ##Scripts
 
     "start": "gulp serve.dev --color",
+    "test":  "gulp test --color",
 
 
     "build.dev": "gulp build.dev --color",
@@ -26,7 +27,6 @@ Hence, put 'em here.
     "serve.e2e": "gulp serve.e2e --color",
     "serve.prod": "gulp serve.prod --color",
     "tasks.list": "gulp --tasks-simple --color",
-    "test": "gulp test --color",
     "e2e.ci": "gulp build.prod --color && gulp build.js.e2e --color && gulp e2e --color",
     "tests.all": "npm test && npm run e2e.ci",
     "webdriver-start": "webdriver-manager start",
@@ -46,7 +46,7 @@ Hence, put 'em here.
      "@angular/router": "3.0.0-beta.2",
      "es6-module-loader": "0.17.11",
      "core-js"", Misc polyfills and extras.
-     "rxjs": "5.0.0-beta.6",
+     "rxjs": "5.0.0-beta.6",  Beta 10 breaks this.
      "systemjs": "0.19.27",
      "zone.js", Something to do with dealing with async calls.
 
@@ -55,6 +55,7 @@ Hence, put 'em here.
      "async",
      "autoprefixer", Parse CSS and add vendor prefixes to CSS rules using values from the Can I Use website
      "browser-sync", (config in seed.config.ts)
+     "codelyzer": "0.0.25",
      "gulp",
      "gulp-cached", 
      "gulp-clean-css",minify CSS using clean-css 
@@ -63,12 +64,16 @@ Hence, put 'em here.
      "gulp-plumber", fix some error in piping streams
      "gulp-sourcemaps",
      "gulp-template",
+     "gulp-tslint": "4.3.3",
      "gulp-typescript", Deal with typescript compilation workflow.
      "gulp-util", Utilities for gulp, such as the logger.
+     "gulp-watch",
+     "is-ci": "1.0.8",
      "isstream", Determine if an object is a stream.
      "merge-stream", Create a stream that emits events from multiple other streams.
      "run-sequence", Runs a sequence of gulp tasks in the specified order. Temporary hack.
      "slash", Convert windows backslash paths to slash paths
+     "tslint": "3.10.2",
      "tildify", Convert absolute paths into the ~ version.
      "ts-node", TypeScript execution env and REPL for node.
 
@@ -81,7 +86,6 @@ both dependencies.
 
 --------
 
-     "codelyzer": "0.0.25",
      "colorguard": "1.2.0",
      "compression": "1.6.2",
      "connect": "3.4.1",
@@ -105,10 +109,8 @@ both dependencies.
      "gulp-sass": "2.3.1",
      "gulp-sass-lint": "1.1.1",
      "gulp-shell": "0.5.2",
-     "gulp-tslint": "4.3.3",
      "gulp-uglify": "1.5.3",
      "gulp-watch": "4.3.5",
-     "is-ci": "1.0.8",
      "jasmine-core": "2.4.1",
      "jasmine-spec-reporter": "2.4.0",
      "karma": "0.13.22",
@@ -129,7 +131,6 @@ both dependencies.
      "systemjs-builder": "0.15.14",
      "tiny-lr": "0.2.1",
      "traceur": "0.0.91",
-     "tslint": "3.10.2",
      "tslint-stylish": "2.1.0-beta",
      "typings": "1.0.4",
      "vinyl-buffer": "1.0.0",

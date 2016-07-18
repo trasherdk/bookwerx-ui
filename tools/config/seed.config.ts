@@ -237,14 +237,14 @@ export class SeedConfig {
   /**
    * The ruleset to be used by `codelyzer` for linting the TypeScript files.
    */
-  //CODELYZER_RULES = customRules();
+  CODELYZER_RULES = customRules()
 
   /**
    * The flag to enable handling of SCSS files
    * The default value is false. Override with the '--scss' flag.
    * @type {boolean}
    */
-  ENABLE_SCSS = argv['scss'] || false;
+  ENABLE_SCSS = argv['scss'] || false
 
   /**
    * The list of NPM dependcies to be injected in the `index.html`.
@@ -487,10 +487,10 @@ function filterDependency(env: string, d: InjectableDependency): boolean {
  * Returns the linting configuration to be used for `codelyzer`.
  * @return {string[]} The list of linting rules.
  */
-//function customRules(): string[] {
-  //var lintConf = require('../../tslint.json');
-  //return lintConf.rulesDirectory;
-//}
+function customRules(): string[] {
+  var lintConf = require('../../tslint.json')
+  return lintConf.rulesDirectory
+}
 
 /**
  * Returns the environment of the application.

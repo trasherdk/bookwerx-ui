@@ -62,14 +62,16 @@ gulp.task('build.dev', (done: any) =>
 
 // --------------
 // Build test.
-//gulp.task('build.test', (done: any) =>
-  //runSequence('clean.dev',
-              //'tslint',
-              //'build.assets.dev',
-              //'build.html_css',
-              //'build.js.test',
-              //'build.index.dev',
-              //done));
+gulp.task('build.test', (done: any) =>
+  runSequence(
+    'clean.dev',
+    'tslint',
+    //'build.assets.dev',
+    //'build.html_css',
+    //'build.js.test',
+    //'build.index.dev',
+    done)
+);
 
 // --------------
 // Build test watch.
@@ -98,7 +100,7 @@ gulp.task('serve.dev', (done: any) =>
   runSequence(
     'build.dev',
     'server.start',
-    //'watch.dev',
+    'watch.dev',
     done)
 )
 
@@ -121,7 +123,9 @@ gulp.task('serve.dev', (done: any) =>
 
 // --------------
 // Test.
-//gulp.task('test', (done: any) =>
-  //runSequence('build.test',
-              //'karma.start',
-              //done));
+gulp.task('test', (done: any) =>
+  runSequence(
+    'build.test',
+    //'karma.start',
+    done)
+)

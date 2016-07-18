@@ -1,4 +1,4 @@
-import * as autoprefixer from 'autoprefixer'
+//import * as autoprefixer from 'autoprefixer'
 //import * as cssnano from 'cssnano'
 import * as gulp from 'gulp'
 import * as gulpLoadPlugins from 'gulp-load-plugins'
@@ -8,12 +8,12 @@ import { join } from 'path'
 import {
   APP_DEST,
   APP_SRC,
-  BROWSER_LIST,
+  //BROWSER_LIST,
   CSS_DEST,
   CSS_PROD_BUNDLE,
   //CSS_SRC,
   DEPENDENCIES,
-  ENABLE_SCSS,
+  //ENABLE_SCSS,
   ENV,
   TMP_DIR,
 } from '../../config';
@@ -21,11 +21,11 @@ import {
 const plugins = <any>gulpLoadPlugins();
 const cleanCss = require('gulp-clean-css');
 
-const processors = [
-  autoprefixer({
-    browsers: BROWSER_LIST
-  })
-]
+//const processors = [
+  //autoprefixer({
+    //browsers: BROWSER_LIST
+  //})
+//]
 
 const isProd = ENV === 'prod';
 
@@ -110,7 +110,7 @@ function processExternalStylesheets() {
 function getExternalCssStream() {
   return gulp.src(getExternalCss())
     .pipe(isProd ? plugins.cached('process-external-css') : plugins.util.noop());
-}  
+}
 
 /**
  * Get an array of filenames referring to all external css stylesheets.
