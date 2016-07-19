@@ -1,5 +1,5 @@
-//import * as autoprefixer from 'autoprefixer'
-//import * as cssnano from 'cssnano'
+import * as autoprefixer from 'autoprefixer'
+import * as cssnano from 'cssnano'
 import * as gulp from 'gulp'
 import * as gulpLoadPlugins from 'gulp-load-plugins'
 import * as merge from 'merge-stream'
@@ -8,7 +8,7 @@ import { join } from 'path'
 import {
   APP_DEST,
   APP_SRC,
-  //BROWSER_LIST,
+  BROWSER_LIST,
   CSS_DEST,
   CSS_PROD_BUNDLE,
   //CSS_SRC,
@@ -21,24 +21,24 @@ import {
 const plugins = <any>gulpLoadPlugins();
 const cleanCss = require('gulp-clean-css');
 
-//const processors = [
-  //autoprefixer({
-    //browsers: BROWSER_LIST
-  //})
-//]
+const processors = [
+  autoprefixer({
+    browsers: BROWSER_LIST
+  })
+]
 
 const isProd = ENV === 'prod';
 
-//if (isProd) {
-  //processors.push(
-    //cssnano({
-      //discardComments: {removeAll: true},
-      //discardUnused: false, // unsafe, see http://goo.gl/RtrzwF
-      //zindex: false, // unsafe, see http://goo.gl/vZ4gbQ
-      //reduceIdents: false // unsafe, see http://goo.gl/tNOPv0
-    //})
-  //);
-//}
+if (isProd) {
+  processors.push(
+    cssnano({
+      discardComments: {removeAll: true},
+      discardUnused: false, // unsafe, see http://goo.gl/RtrzwF
+      zindex: false, // unsafe, see http://goo.gl/vZ4gbQ
+      reduceIdents: false // unsafe, see http://goo.gl/tNOPv0
+    })
+  )
+}
 
 /**
  * Copies all HTML files in `src/client` over to the `dist/tmp` directory.
@@ -80,7 +80,7 @@ function processComponentCss() {
     '!' + join(APP_SRC, 'assets', '**', '*.css')
   ])
     .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop())
-    //.pipe(plugins.postcss(processors))
+    .pipe(plugins.postcss(processors))
     .pipe(gulp.dest(isProd ? TMP_DIR : APP_DEST))
 }
 
@@ -143,7 +143,7 @@ function getExternalCss() {
  */
 function processExternalCss() {
   return getExternalCssStream()
-    //.pipe(plugins.postcss(processors))
+    .pipe(plugins.postcss(processors))
     .pipe(isProd ? plugins.concatCss(CSS_PROD_BUNDLE) : plugins.util.noop())
     .pipe(isProd ? cleanCss() : plugins.util.noop())
     .pipe(gulp.dest(CSS_DEST))

@@ -36,13 +36,13 @@ export class SeedConfig {
   /**
    * The root folder of the project (up two levels from the current directory).
    */
-  //PROJECT_ROOT = join(__dirname, '../..');
+  PROJECT_ROOT = join(__dirname, '../..')
 
   /**
    * The current environment.
    * The default environment is `dev`, which can be overriden by the `--config-env ENV_NAME` flag when running `npm start`.
    */
-  ENV = getEnvironment();
+  ENV = getEnvironment()
 
   /**
    * The flag for the debug option of the application.
@@ -220,7 +220,7 @@ export class SeedConfig {
    * The name of the bundle file to include all JavaScript application files.
    * @type {string}
    */
-  //JS_PROD_APP_BUNDLE = 'app.js';
+  JS_PROD_APP_BUNDLE = 'app.js';
 
   /**
    * The required NPM version to run the application.
@@ -324,54 +324,54 @@ export class SeedConfig {
    * The system builder configuration of the application.
    * @type {any}
    */
-  //SYSTEM_BUILDER_CONFIG: any = {
-    //defaultJSExtensions: true,
-    //packageConfigPaths: [
-      //join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
-      //join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
-    //],
-    //paths: {
-      //[`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
-      //'*': 'node_modules/*'
-    //},
-    //packages: {
-      //'@angular/common': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'@angular/compiler': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'@angular/core': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'@angular/forms': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'@angular/http': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'@angular/platform-browser': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'@angular/platform-browser-dynamic': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'@angular/router': {
-        //main: 'index.js',
-        //defaultExtension: 'js'
-      //},
-      //'rxjs': {
-        //defaultExtension: 'js'
-      //}
-    //}
-  //};
+  SYSTEM_BUILDER_CONFIG: any = {
+    defaultJSExtensions: true,
+    packageConfigPaths: [
+      join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
+      join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
+    ],
+    paths: {
+      [`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
+      '*': 'node_modules/*'
+    },
+    packages: {
+      '@angular/common': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/compiler': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/core': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/forms': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/http': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/platform-browser': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/platform-browser-dynamic': {
+         main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/router': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      'rxjs': {
+        defaultExtension: 'js'
+      }
+    }
+  }
 
   /**
    * The Autoprefixer configuration for the application.

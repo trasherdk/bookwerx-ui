@@ -47,18 +47,21 @@ gulp.task('build.dev', (done: any) =>
 
 // --------------
 // Build prod.
-//gulp.task('build.prod', (done: any) =>
-  //runSequence('clean.prod',
-              //'tslint',
-              //'css-lint',
-              //'build.assets.prod',
-              //'build.html_css',
-              //'copy.js.prod',
-              //'build.js.prod',
-              //'build.bundles',
-              //'build.bundles.app',
-              //'build.index.prod',
-              //done));
+gulp.task('build.prod', (done: any) =>
+  runSequence(
+    'clean.prod',
+    'tslint',
+    'css-lint',
+    'build.assets.prod',
+    'build.html_css',
+    'copy.js.prod',
+    'build.js.prod',
+    'build.bundles',
+    'build.bundles.app',
+    'build.index.prod',
+    done
+  )
+)
 
 // --------------
 // Build test.
