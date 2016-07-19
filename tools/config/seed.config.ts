@@ -226,13 +226,13 @@ export class SeedConfig {
    * The required NPM version to run the application.
    * @type {string}
    */
-  //VERSION_NPM = '2.14.2';
+  VERSION_NPM = '2.14.2'
 
   /**
    * The required NodeJS version to run the application.
    * @type {string}
    */
-  //VERSION_NODE = '4.0.0';
+  VERSION_NODE = '4.0.0'
 
   /**
    * The ruleset to be used by `codelyzer` for linting the TypeScript files.
