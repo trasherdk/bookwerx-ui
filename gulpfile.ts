@@ -74,14 +74,17 @@ gulp.task('build.test', (done: any) =>
     'build.js.test',
     'build.index.dev',
     done)
-);
+)
 
 // --------------
 // Build test watch.
-//gulp.task('build.test.watch', (done: any) =>
-  //runSequence('build.test',
-              //'watch.test',
-              //done));
+gulp.task('build.test.watch', (done: any) =>
+  runSequence(
+    'build.test',
+    'watch.test',
+    done
+  )
+)
 
 // --------------
 // Build tools.

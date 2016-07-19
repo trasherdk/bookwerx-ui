@@ -1,15 +1,17 @@
-import { TestComponentBuilder } from '@angular/compiler/testing';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import { Component } from '@angular/core';
+import { TestComponentBuilder } from '@angular/compiler/testing'
+import { disableDeprecatedForms, provideForms } from '@angular/forms'
+import { Component } from '@angular/core'
 import {
-  describe,
-  expect,
-  inject,
-  it
-} from '@angular/core/testing';
-import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
+  //describe,
+  //expect,
+  inject
+  //it
+} from '@angular/core/testing'
+import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter'
 
-import { AboutComponent } from './about.component';
+//import * as util from 'gulp-util'
+
+import { AboutComponent } from './about.component'
 
 export function main() {
   describe('About component', () => {
@@ -18,16 +20,21 @@ export function main() {
 
     beforeEach(() => { providerArr = [disableDeprecatedForms(), provideForms()]; });
 
-    it('should work',
+    it('should workk',
       inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
         tcb.overrideProviders(TestComponent, providerArr)
           .createAsync(TestComponent)
           .then((rootTC: any) => {
-            let aboutDOMEl = rootTC.debugElement.children[0].nativeElement;
-	        expect(getDOM().querySelectorAll(aboutDOMEl, 'h2')[0].textContent).toEqual('Features');
-          });
-        }));
-    });
+
+            let aboutDOMEl = rootTC.debugElement.children[0].nativeElement
+            let n = getDOM().querySelectorAll(aboutDOMEl, 'h2')[0].textContent
+            console.log('about.component.spec.ts',n)
+
+            expect(getDOM().querySelectorAll(aboutDOMEl, 'h2')[0].textContent).toEqual('Features')
+          })
+      })
+    )
+  })
 }
 
 @Component({
