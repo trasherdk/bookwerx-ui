@@ -47,7 +47,7 @@ Hence, put 'em here.
      "@angular/router": "3.0.0-beta.2",
      "es6-module-loader": "0.17.11",
      "core-js"", Misc polyfills and extras.
-     "rxjs": "5.0.0-beta.6",  Beta 10 breaks this.
+     "rxjs": "5.0.0-beta.6",  Beta 10 breaks this app.
      "systemjs": "0.19.27",
      "zone.js", Something to do with dealing with async calls.
 
