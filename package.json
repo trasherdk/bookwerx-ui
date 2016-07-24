@@ -48,7 +48,7 @@
   },
 
   "devDependencies": {
-    "async": "2.0.0",
+    "async": "2.0.1",
     "autoprefixer": "6.3.7",
     "browser-sync": "2.13.0",
     "codelyzer": "0.0.25",

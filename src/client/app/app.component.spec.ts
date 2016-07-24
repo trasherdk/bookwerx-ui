@@ -74,7 +74,10 @@ export function main() {
         tcb.overrideProviders(TestComponent, providerArr)
           .createAsync(TestComponent)
           .then((fixture) => {
+            // Should also test for _only_ these three items.
             expect((fixture.nativeElement.innerText.indexOf('HOME'))>=0).toBeTruthy()
+            expect((fixture.nativeElement.innerText.indexOf('ACCOUNTS'))>=0).toBeTruthy()
+            expect((fixture.nativeElement.innerText.indexOf('ABOUT'))>=0).toBeTruthy()
           })
       }))
     )
