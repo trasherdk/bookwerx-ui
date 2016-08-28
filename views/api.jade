@@ -1,0 +1,153 @@
+extends layout
+
+
+block content
+    h2 bookwerx-core API demonstration
+
+    p bookwerx-ui is an example user interface for bookwerx-core.  This app functions by working the bookwerx-core API. Here we have a sequence of operations that are intended to test/demonstrate the correction operation of bookwerx-core.
+    p Please be reminded that the bookwerx-ui configuration supports use of _two_ different bookwerx-core servers, lest this test wipe your real data. The relevant config parameters are:
+    ul
+        li bookwerx_coreURL Is for ordinary operation.
+        li bookwerx_coreURL_APITest is the server that this test uses.
+
+    h3 Chapter 1. Brainwipe
+    p To start, we want to wipe the slate clean.
+    div
+        pre PUT #{result.bookwerx_coreURL}/brainwipe
+        pre #{result.brainwipe}
+
+    hr
+
+
+    h3 Chapter 2. Basic CRUD operations.
+    p We must be able to perform the basic CRUD operations on each of the relevant collections.  Let's focus on that first.  More complex operations such as demonstrating referential integrity between the collections will come later. Let's just get this out of the way first.
+
+    mixin crud(chapter, collectionPluralCaps, data)
+
+        h4 #{chapter}.1 Basic CRUD- #{collectionPluralCaps}
+
+        //- 1. POST /accounts
+        div
+            pre
+                p content-type=application/json
+                p #{JSON.stringify(data.post_data)}
+                p POST #{data.post_url}
+            pre #{data.post_result}
+
+        hr
+
+        // 2. GET /accounts
+        div
+            pre GET #{data.get_url}
+            pre #{data.get_result}
+            p Notice that the result is an array.  In this case, an array of only one.
+
+        hr
+
+        // 3. GET /accounts/:id
+        // 3.1 good id
+        div
+            pre GET #{data.getOne_good_id_url}
+            pre #{data.getOne_good_id_result}
+
+        hr
+
+        // 3.2 bad id
+        div
+            pre GET #{data.getOne_bad_id_url}
+            pre #{data.getOne_bad_id_result}
+            p This error is expected and is the correct operation.
+
+        hr
+
+        // 4. PUT /accounts/:id
+        // 4.1 good id
+        div
+            pre
+                p content-type=application/json
+                p #{JSON.stringify(data.put_data)}
+                p PUT #{data.put_good_id_url}
+
+            pre #{data.put_good_id_result}
+
+        hr
+
+        // 4.2 bad id
+        div
+            pre
+                p content-type=application/json
+                p #{JSON.stringify(data.put_data)}
+                p PUT #{data.put_bad_id_url}
+
+            pre #{data.put_bad_id_result}
+            p This error is expected and is the correct operation.
+
+        hr
+
+        // 5. DELETE /accounts/:id
+        // 5.1 good id
+        div
+            pre DELETE #{data.delete_good_id_url}
+            pre #{data.delete_good_id_result}
+
+        hr
+
+        // 2.5.2 bad id
+        div
+            pre DELETE #{data.delete_bad_id_url}
+            pre #{data.delete_bad_id_result}
+            p This error is expected and is the correct operation.
+
+
+
+    +crud(2, 'Accounts',   result.accounts)
+    br
+
+    +crud(3, 'Categories', result.categories)
+    br
+
+    +crud(4, 'Currencies', result.currencies)
+    br
+
+    h3 Chapter 3. Accounts-Categories
+    - data = result.accounts_categories
+
+    //- 1.1 POST /categories
+    div
+        pre
+            p content-type=application/json
+            p #{JSON.stringify(data.post_categories_data1)}
+            p POST #{data.post_categories_url1}
+        pre #{data.post_categories_result1}
+
+    hr
+
+    //- 1.2 POST /categories
+    div
+        pre
+            p content-type=application/json
+            p #{JSON.stringify(data.post_categories_data2)}
+            p POST #{data.post_categories_url2}
+        pre #{data.post_categories_result2}
+
+    hr
+
+    // 2. POST /accounts  ... connected to cat bad. Observe error.
+    div
+        pre
+            p content-type=application/json
+            p #{JSON.stringify(data.post_accounts_data1)}
+            p POST #{data.post_accounts_url1}
+        pre #{data.post_accounts_result1}
+
+    hr
+
+    // 2. POST /accounts  ... connected to cat1.
+    div
+        pre
+            p content-type=application/json
+            p #{JSON.stringify(data.post_accounts_data2)}
+            p POST #{data.post_accounts_url2}
+        pre #{data.post_accounts_result2}
+
+    hr

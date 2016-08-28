@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+    h1 Edit or delete a new distribution for transaction #{data.distribution.transaction_id}
+
+    form(method="post")
+        fieldset.form-group
+
+            - dr_checked=true
+            - cr_checked=false
+            - amount = data.distribution.amount
+            - if(amount < 0) {dr_checked=false; cr_checked=true; amount *= -1}
+
+            div.radio
+                label
+                    input.form-control(type="radio" name="drcr" value="1" checked=dr_checked)
+                    p DR
+
+            div.radio
+                label
+                    input.form-control(type="radio" name="drcr" value="-1" checked=cr_checked)
+                    p CR
+
+            input.form-control(name="transaction_id", type="hidden", value=data.distribution.transaction_id)
+
+
+            label(for="account_id") Account:
+            select.form-control(name="account_id" value=data.distribution.account_id)
+                option(value='') none selected
+                each account in data.accounts
+                    option(value="#{account._id}" selected=data.distribution.account_id==account._id) #{account.title}
+
+            label(for="amount") Amount:
+            input.form-control(name="amount", type="text", placeholder="Enter an amount", value=amount)
+
+            label(for="currency_id") Currency:
+            select.form-control(name="currency_id")
+                option(value='') none selected
+                each currency in data.currencies
+                    option(value="#{currency._id}" selected=data.distribution.currency_id==currency._id) #{currency.symbol}
+
+
+        button.btn.btn-primary(type="submit" name="save") Save
+        button.btn.btn-primary(type="submit" name="delete") Delete
+
+        a.btn.btn-defualt(href="/admin/distributions") Cancel

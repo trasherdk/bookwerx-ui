@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h1 Currencies:
+    a.btn.btn-primary(href="/admin/currencies/addform") Create a new currency
+    table.table.table-striped
+        thead
+            tr
+                th Symbol
+                th Title
+                th Id
+        tbody
+            each currency in currencies
+                tr
+                    td(style="width: 50px;"): a(href="/admin/currencies/delete/#{currency._id}")
+                        span.glyphicon.glyphicon-remove
+                    td= currency.symbol
+                    td= currency.title
+                    td(style="width: 50px;"): a(href="/admin/currencies/editform/#{currency._id}")
+                        span.glyphicon.glyphicon-pencil
+                    td= currency._id

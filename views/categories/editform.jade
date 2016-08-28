@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h1 Edit a category
+
+    form(method="post")
+        fieldset.form-group
+            label(for="symbol") Symbol:
+            input.form-control(name="symbol", type="text", placeholder="Enter a symbol", value="#{category.symbol}")
+            label(for="title") Title:
+            input.form-control(name="title", type="text", placeholder="Enter a title", value="#{category.title}")
+
+        button.btn.btn-primary(type="submit") Save category
+        a.btn.btn-defualt(href="/categories") Cancel

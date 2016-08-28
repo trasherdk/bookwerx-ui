@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+    h1 Transactions:
+    a.btn.btn-primary(href="/transactions/addform") Create a new transaction
+
+    if transactions.length > 0
+        table.table.table-striped
+            thead
+                tr
+                    th
+                    th Datetime
+                    th Note
+                    th Id
+                    th
+                    th
+
+            tbody
+                each transaction in transactions
+                    tr
+                        td(style="width: 50px;"): a(href="/transactions/dashboard/#{transaction._id}")
+                            span.glyphicon.glyphicon-zoom-in
+
+                        td= transaction.datetime
+                        td= transaction.note
+                        td= transaction._id
+
+                        td(style="width: 50px;"): a(href="/transactions/editform/#{transaction._id}")
+                            span.glyphicon.glyphicon-pencil
+                        td(style="width: 50px;"): a(href="/transactions/delete/#{transaction._id}")
+                            span.glyphicon.glyphicon-remove

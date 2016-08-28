@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    h1 Accounts:
+    a.btn.btn-primary(href="/accounts/addform") Create a new account
+
+    if accounts.length > 0
+        table.table.table-striped
+            thead
+                tr
+                    th
+                    th Title
+                    th Categories
+                    th Id
+                    th
+                    th
+
+            tbody
+                each account in accounts
+                    tr
+                        td(style="width: 50px;"): a(href="/accounts/dashboard/#{account._id}")
+                            span.glyphicon.glyphicon-zoom-in
+
+                        td= account.title
+                        td= account.categories
+                        td= account._id
+
+                        td(style="width: 50px;"): a(href="/accounts/editform/#{account._id}")
+                            span.glyphicon.glyphicon-pencil
+                        td(style="width: 50px;"): a(href="/accounts/delete/#{account._id}")
+                            span.glyphicon.glyphicon-remove
+

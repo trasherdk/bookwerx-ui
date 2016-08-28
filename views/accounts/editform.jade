@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h1 Edit an account
+
+    form(method="post")
+        fieldset.form-group
+            label(for="title") Title:
+            input.form-control(name="title", type="text", placeholder="Enter a title", value="#{account.title}")
+
+        button.btn.btn-primary(type="submit") Save account
+        a.btn.btn-defualt(href="/accounts") Cancel

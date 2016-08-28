@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    h1 Categories:
+    a.btn.btn-primary(href="/categories/addform") Create a new category
+
+    if categories.length > 0
+        table.table.table-striped
+            thead
+                tr
+                    th
+                    th Symbol
+                    th Title
+                    th
+                    th Id
+            tbody
+                each category in categories
+                    tr
+                        td(style="width: 50px;"): a(href="/categories/delete/#{category._id}")
+                            span.glyphicon.glyphicon-remove
+                        td= category.symbol
+                        td= category.title
+                        td(style="width: 50px;"): a(href="/categories/editform/#{category._id}")
+                            span.glyphicon.glyphicon-pencil
+                        td= category._id

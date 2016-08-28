@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h1 Create a new transaction
+
+    form(method="post")
+        fieldset.form-group
+            label(for="datetime") Datetime:
+            input.form-control(name="datetime", type="text", placeholder="Enter a time and date")
+            label(for="note") Note:
+            input.form-control(name="note", type="textarea", placeholder="Enter a note")
+        button.btn.btn-primary(type="submit") Create new transaction
+        a.btn.btn-defualt(href="/transactions") Cancel
