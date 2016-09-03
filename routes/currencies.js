@@ -1,12 +1,15 @@
-let request = require('request')
+let config = require('config')
 let express = require('express')
+let request = require('request')
 
 let router = express.Router()
 module.exports = router
 
+let bookwerxCoreURL = config.get('bookwerx_coreURL')
+
 // Display the list of all currencies
 router.get('/', (req, res) => {
-  request('http://localhost:3003/currencies', (error, response, body) => {
+  request(bookwerxCoreURL + '/currencies', (error, response, body) => {
     if (!error && response.statusCode === 200) {
       res.render('currencies/currencies.jade', {
         currencies: JSON.parse(body)
@@ -23,7 +26,7 @@ router.get('/addform', (req, res) => {
 // Receive the post from the addform
 router.post('/addform', (req, res) => {
   request({
-    'url': 'http://localhost:3003/currencies',
+    'url': bookwerxCoreURL + '/currencies',
     'method': 'POST',
     'json': {symbol: req.body.symbol, title: req.body.title}
   }, (error, response, body) => {
@@ -34,7 +37,7 @@ router.post('/addform', (req, res) => {
 
 router.get('/editform/:id', (req, res) => {
   let currencyId = req.params.id
-  request('http://localhost:3003/currencies/' + currencyId, (error, response, body) => {
+  request(bookwerxCoreURL + '/currencies/' + currencyId, (error, response, body) => {
     if (!error && response.statusCode === 200) {
       let currency = JSON.parse(body)[0]
       res.render('currencies/editform.jade', {currency})
@@ -47,9 +50,9 @@ router.get('/editform/:id', (req, res) => {
 // Should be put, but browsers can't figure this out
 router.post('/editform/:id', (req, res) => {
   let currencyId = req.params.id
-  let n =   {symbol: req.body.symbol, title: req.body.title}
+  let n = {symbol: req.body.symbol, title: req.body.title}
   request({
-    'url': 'http://localhost:3003/currencies/' + currencyId,
+    'url': bookwerxCoreURL + '/currencies/' + currencyId,
     'method': 'PUT',
     'json': n
   }, (error, response, body) => {
@@ -58,8 +61,8 @@ router.post('/editform/:id', (req, res) => {
   })
 })
 
-//router.get('/currencies/delete/:id', function (req, res) {
-    //let currencyId = req.params.id
-    //currencies = currencies.filter(r=> r.id !== currencyId)
-    //res.redirect(req.baseUrl + "/currencies")
-//})
+// router.get('/currencies/delete/:id', function (req, res) {
+    // let currencyId = req.params.id
+    // currencies = currencies.filter(r=> r.id !== currencyId)
+    // res.redirect(req.baseUrl + "/currencies")
+// })

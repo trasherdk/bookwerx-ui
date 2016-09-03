@@ -41,7 +41,7 @@ router.get('/addform', (req, res) => {
 // Receive the post from the addform
 router.post('/addform', (req, res) => {
   request({
-    'url': 'http://localhost:3003/accounts',
+    'url': bookwerxCoreURL + '/accounts',
     'method': 'POST',
     'json': {symbol: req.body.symbol, title: req.body.title}
   }, (error, response, body) => {
@@ -52,7 +52,7 @@ router.post('/addform', (req, res) => {
 
 router.get('/dashboard/:id', (req, res) => {
   let accountId = req.params.id
-  request('http://localhost:3003/accounts/dashboard/' + accountId, (error, response, body) => {
+  request(bookwerxCoreURL + '/accounts/dashboard/' + accountId, (error, response, body) => {
     if (!error && response.statusCode === 200) {
       let data = JSON.parse(body)
       res.render('accounts/dashboard.jade', {data})
@@ -117,11 +117,9 @@ router.post('/editform/:account_id', (req, res) => {
     // categories sb [].
   }
 
-  //let n = {symbol: req.body.symbol, title: req.body.title}
-
   let n = {title: req.body.title, categories: categories}
   request({
-    'url': 'http://localhost:3003/accounts/' + accountId,
+    'url': bookwerxCoreURL + '/accounts/' + accountId,
     'method': 'PUT',
     'json': n
   }, (error, response, body) => {
