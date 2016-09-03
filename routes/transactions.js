@@ -5,11 +5,11 @@ let request = require('request')
 let router = express.Router()
 module.exports = router
 
-let bookwerx_coreURL = config.get('bookwerx_coreURL')
+let bookwerxCoreURL = config.get('bookwerx_coreURL')
 
 // Display the list of all transactions
 router.get('/', (req, res) => {
-  request(bookwerx_coreURL + '/transactions', (error, response, body) => {
+  request(bookwerxCoreURL + '/transactions', (error, response, body) => {
     if (!error && response.statusCode === 200) {
       res.render('transactions/transactions.jade', {
         transactions: JSON.parse(body)
@@ -31,12 +31,11 @@ router.post('/addform', (req, res) => {
     'json': {datetime: req.body.datetime, note: req.body.note}
   }, (error, response, body) => {
     if (error) res.send(error)
-    res.redirect(req.baseUrl )
+    res.redirect(req.baseUrl)
   })
 })
 
 router.get('/dashboard/:id', (req, res) => {
-
   let transactionId = req.params.id
   request('http://localhost:3003/transactions/dashboard/' + transactionId, (error, response, body) => {
     if (!error && response.statusCode === 200) {
@@ -63,7 +62,7 @@ router.get('/editform/:id', (req, res) => {
 // Should be put, but browsers can't figure this out
 router.post('/editform/:id', (req, res) => {
   let transactionId = req.params.id
-  let n =   {datetime: req.body.datetime, note: req.body.note}
+  let n = {datetime: req.body.datetime, note: req.body.note}
   request({
     'url': 'http://localhost:3003/transactions/' + transactionId,
     'method': 'PUT',
@@ -74,49 +73,8 @@ router.post('/editform/:id', (req, res) => {
   })
 })
 
-//router.get('/transactions/delete/:id', function (req, res) {
-    //let transactionId = req.params.id
-    //transactions = transactions.filter(r=> r.id !== transactionId)
-    //res.redirect(req.baseUrl + "/transactions")
-//})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// router.get('/transactions/delete/:id', function (req, res) {
+    // let transactionId = req.params.id
+    // transactions = transactions.filter(r=> r.id !== transactionId)
+    // res.redirect(req.baseUrl + "/transactions")
+// })
