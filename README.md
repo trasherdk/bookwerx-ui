@@ -24,10 +24,11 @@ Note: Be sure to quote the glob pattern in npm commands or you may have unpleasa
 
 ## Dependencies
 
-**bookwerx-ui** uses React for the UI and hence requires:
+**bookwerx-ui** uses React for the UI and routing and hence requires:
 
 * react
 * react-dom
+* react-router-dom
 
 **bookwerx-ui** also uses:
 

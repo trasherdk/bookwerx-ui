@@ -2,6 +2,9 @@ const path = require('path')
 
 module.exports = {
   devtool: 'eval-source-map',
+  devServer: {
+    historyApiFallback: true
+  },
   entry: './src/root.js',
   output: {
     path: path.resolve(__dirname, 'build'),
