@@ -1,6 +1,0 @@
-{
-  "configName": "default",
-  "bookwerx_coreURL": "http://localhost:3003",
-  "bookwerx_coreURL_APITest": "http://localhost:4003",
-  "port":3004
-}
