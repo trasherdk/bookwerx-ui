@@ -8,7 +8,7 @@
 
 # Welcome to bookwerx-ui
 
-The purpose of **bookwerx-ui** is to provide an example user interface to the [bookwerx-core](https://github.com/bostontrader/bookwerx-core)bookkeeping engine.
+The purpose of **bookwerx-ui** is to provide an example user interface to the [bookwerx-core](https://github.com/bostontrader/bookwerx-core) bookkeeping engine.
 
 
 ## Getting Started
@@ -36,8 +36,9 @@ Note: Be sure to quote the glob pattern in npm commands or you may have unpleasa
 
 ## devDependencies
 
-**bookwerx-ui** uses webpack and the weback development server.
+**bookwerx-ui** uses webpack and the weback development server. We also use some twisted to hack to prevent CSS from getting transpiled.  That's a big does-not-compute so we don't want that.
 
+* require-hacker
 * webpack
 * webpack-dev-server
 
@@ -53,7 +54,10 @@ Because we load some css we need:
 * css-loader
 * style-loader
 
-For testing we use Ava and Nyc so we therefore need:
+For testing we use Ava, Enzyme, and Nyc.  I recently had a problem with ajv being missing.  So I therefore needed to add it.  As per the enzyme docs, if we use React >=15.5 then I must also use react-test-renderer:
 
+* ajv
 * ava
+* enzyme
 * nyc
+* react-test-renderer
