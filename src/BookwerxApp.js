@@ -3,8 +3,8 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {Link}  from 'react-router-dom'
 import {Route} from 'react-router-dom'
 import 'bulma/css/bulma.css'
+import Home from './Home'
 
-const Home = () => (<div><h2>Home</h2></div>)
 const Accounts = () => (<div><h2>Accounts</h2></div>)
 const Categories = () => (<div><h2>Categories</h2></div>)
 const Currencies = () => (<div><h2>Currencies</h2></div>)
@@ -46,11 +46,7 @@ const Topics = ({ match }) => (
 
 const BookwerxApp = () => (
   <Router>
-
-
-
     <div>
-
       <nav className="navbar ">
         <div className="navbar-brand">
           bookwerx-ui
@@ -93,19 +89,3 @@ const BookwerxApp = () => (
   </Router>
 )
 export default BookwerxApp
-
-
-/*import React from 'react'
-
-class BookwerxApp extends React.Component {
-
-  render() {
-    return (
-
-    )
-  }
-
-}
-
-export default BookwerxApp
-*/
