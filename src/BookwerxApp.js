@@ -3,9 +3,10 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {Link}  from 'react-router-dom'
 import {Route} from 'react-router-dom'
 import 'bulma/css/bulma.css'
-import Home from './Home'
 
-const Accounts = () => (<div><h2>Accounts</h2></div>)
+import Accounts from './Accounts'
+import Home     from './Home'
+
 const Categories = () => (<div><h2>Categories</h2></div>)
 const Currencies = () => (<div><h2>Currencies</h2></div>)
 const Transactions = () => (<div><h2>Transactions</h2></div>)
