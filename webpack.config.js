@@ -1,4 +1,5 @@
-const path = require('path')
+const path    = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -24,5 +25,11 @@ module.exports = {
         'css-loader?-autoprefixer'
       ],
     }]
+  },
+  node: {
+  //console: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 }

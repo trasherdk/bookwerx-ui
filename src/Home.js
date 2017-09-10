@@ -1,4 +1,22 @@
-import React from 'react'
+import React   from 'react'
+import request from 'request'
+
+const port = '3003'
+
+const readKey = () => {
+  return new Promise((resolve, reject) => {
+    request({
+      'url': 'http://localhost:3003/keys',
+      'method': 'POST'
+    }, (error, res, body) => {
+      if (error) {
+        reject(error)
+      } else {
+        resolve(body)
+      }
+    })
+  })
+}
 
 const Home = () => (
   <div>
@@ -25,7 +43,7 @@ const Home = () => (
 
 
     <div className="control">
-      <button className="button is-primary">Get Key</button>
+      <button className="button is-primary" onClick={()=>{readKey()}}>Get Key</button>
     </div>
 
   </div>
