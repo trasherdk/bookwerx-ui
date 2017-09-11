@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bulma": "^0.5.1",
+    "freezer-js": "^0.13.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
